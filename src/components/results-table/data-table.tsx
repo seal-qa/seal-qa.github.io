@@ -41,6 +41,9 @@ export function DataTable<TData, TValue>({
     "answer_label.wrong": false,
     "answer_label.uncertain": false,
     "answer_label.none": false,
+    "average_time.correct": false,
+    "average_time.wrong": false,
+    "average_time.uncertain": false,
   });
 
   const table = useReactTable({
@@ -76,28 +79,36 @@ export function DataTable<TData, TValue>({
         >
           Show Answer Labels
         </Toggle>
+
+        <Toggle
+          onClick={() => {
+            table.getColumn("average_time.correct")?.toggleVisibility();
+            table.getColumn("average_time.wrong")?.toggleVisibility();
+            table.getColumn("average_time.uncertain")?.toggleVisibility();
+          }}
+        >
+          Show Time Taken
+        </Toggle>
       </div>
       <div className="rounded-md border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header, index) => {
-                  return (
-                    <TableHead
-                      key={`${headerGroup.id}-${header.id}-${index}`}
-                      colSpan={header.colSpan}
-                      className="text-center px-0"
-                    >
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                    </TableHead>
-                  );
-                })}
+                {headerGroup.headers.map((header, index) => (
+                  <TableHead
+                    key={`${headerGroup.id}-${header.id}-${index}`}
+                    colSpan={header.colSpan}
+                    className="text-center px-0"
+                  >
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </TableHead>
+                ))}
               </TableRow>
             ))}
           </TableHeader>
@@ -107,18 +118,33 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={`${row.id}-${index}`}
                   data-state={row.getIsSelected() && "selected"}
+                  // 1) highlight the entire "Human" row
+                  className={
+                    (row.original as any).category === "Human"
+                      ? "bg-blue-50"
+                      : ""
+                  }
                 >
-                  {row.getVisibleCells().map((cell, cellIndex) => (
-                    <TableCell
-                      key={`${cell.id}-${cellIndex}`}
-                      className="text-center"
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
+                  {row.getVisibleCells().map((cell, cellIndex) => {
+                    // 2) only bold "accuracy" columns for the Human row
+                    const isHumanRow =
+                      (row.original as any).category === "Human";
+                    const isAccuracyCell = cell.column.id?.includes("accuracy");
+
+                    return (
+                      <TableCell
+                        key={`${cell.id}-${cellIndex}`}
+                        className={`text-center ${
+                          isHumanRow && isAccuracyCell ? "font-bold" : ""
+                        }`}
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    );
+                  })}
                 </TableRow>
               ))
             ) : (

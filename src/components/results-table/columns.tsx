@@ -11,9 +11,9 @@ export type RowData = {
   category: string;
   model: string;
   accuracy: {
-    all: string;
-    text_only: string;
-    multimodal: string;
+    all: string;        // e.g. "84.7%"
+    text_only: string;  // e.g. "83.6%"
+    multimodal: string; // e.g. "85.7%"
   };
   answer_label: {
     correct: string;
@@ -29,10 +29,14 @@ export type RowData = {
 };
 
 const getCorrectSort = (column: Column<RowData>) => {
-  if (!column.getIsSorted()) column.toggleSorting(false);
-  if (column.getIsSorted() === "asc") column.toggleSorting(true);
-  if (column.getIsSorted() === "desc") column.clearSorting();
-  return undefined;
+  // Toggle sorting on click, cycling through asc -> desc -> none
+  if (!column.getIsSorted()) {
+    column.toggleSorting(false);
+  } else if (column.getIsSorted() === "asc") {
+    column.toggleSorting(true);
+  } else if (column.getIsSorted() === "desc") {
+    column.clearSorting();
+  }
 };
 
 const SortableColumnHeader = ({
@@ -54,6 +58,17 @@ const SortableColumnHeader = ({
     <ArrowUpDown className="ml-2 h-4 w-4" />
   </Button>
 );
+
+/**
+ * Helper to parse a percentage string like "84.7%" => 84.7
+ * If string is invalid, return 0
+ */
+function parsePercentage(value: string): number {
+  if (!value) return 0;
+  // Remove the "%" and parse as float
+  const numeric = parseFloat(value.replace("%", ""));
+  return isNaN(numeric) ? 0 : numeric;
+}
 
 export const columns: ColumnDef<RowData>[] = [
   {
@@ -78,22 +93,27 @@ export const columns: ColumnDef<RowData>[] = [
     header: "Accuracy",
     columns: [
       {
-        accessorFn: (row) => row.accuracy.all,
         id: "accuracy.all",
+        // 1) Store numeric value internally for sorting
+        accessorFn: (row) => parsePercentage(row.accuracy.all),
+        // 2) Display the original string (with `%`) in the table cell
+        cell: ({ row }) => row.original.accuracy.all,
         header: ({ column }) => (
           <SortableColumnHeader column={column} header="All" />
         ),
       },
       {
-        accessorFn: (row) => row.accuracy.text_only,
         id: "accuracy.text_only",
+        accessorFn: (row) => parsePercentage(row.accuracy.text_only),
+        cell: ({ row }) => row.original.accuracy.text_only,
         header: ({ column }) => (
           <SortableColumnHeader column={column} header="Text Only" />
         ),
       },
       {
-        accessorFn: (row) => row.accuracy.multimodal,
         id: "accuracy.multimodal",
+        accessorFn: (row) => parsePercentage(row.accuracy.multimodal),
+        cell: ({ row }) => row.original.accuracy.multimodal,
         header: ({ column }) => (
           <SortableColumnHeader column={column} header="Multimodal" />
         ),
