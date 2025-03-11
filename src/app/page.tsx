@@ -43,7 +43,7 @@ export default function Home() {
               <Link href="/BearCubs_20250310.jsonl" download>Download questions</Link>
             </Button>
             <Button>
-              <Link href="">Submit a question</Link>
+              <Link href="https://forms.gle/dLj4QWRgAu4bpcE96">Submit a question</Link>
             </Button>
             <Button>
               <Link href="">Evaluate your agent</Link>
