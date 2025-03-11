@@ -36,16 +36,41 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-2 md:gap-4">
-            <Button>Paper</Button>
-            <Button>Submit a question</Button>
-            <Button>Evaluate your agent</Button>
+            <Button asChild>
+              <Link href="">Paper</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/BearCubs_20250310.jsonl" download>Download questions</Link>
+            </Button>
+            <Button>
+              <Link href="">Submit a question</Link>
+            </Button>
+            <Button>
+              <Link href="">Evaluate your agent</Link>
+            </Button>
             <Button asChild>
               <Link href="mailto:bearcubsteam@gmail.com">Contact us</Link>
             </Button>
           </div>
         </header>
         <Separator />
-        <p className="text-lg text-muted-foreground">Bearcubs leaderboard</p>
+        <p className="text-md text-muted-foreground">Modern web agents possess <em>computer use</em> abilities 
+          that allow them to interact with webpages by sending commands to a virtual keyboard and mouse. 
+          While such agents have considerable potential to assist human users with complex tasks, evaluating 
+          their capabilities in real-world settings poses a major challenge. To this end, we introduce BearCubs, 
+          a “small but mighty” benchmark of 111 information-seeking questions designed to evaluate a web agent’s 
+          ability to search, browse, and identify factual information from the web. Unlike prior web agent benchmarks, 
+          solving BearCubs requires (1) accessing <em>live</em> web content rather than synthetic or simulated pages, 
+          which captures the unpredictability of real-world web interactions; and (2) performing a broad range of <em>multimodal</em> interactions
+          (e.g., video understanding, 3D navigation) that cannot be bypassed via text-based
+          workarounds. Each question in BearCubs has a corresponding short, unambiguous answer and a human-validated browsing 
+          trajectory, allowing for transparent evaluation of agent performance and strategies. A human study confirms that 
+          questions are solvable but non-trivial (<strong>84.7%</strong> human accuracy), revealing search inefficiencies and
+          domain knowledge gaps as common failure points. By contrast, state-of-the-art computer-using agents underperform, with 
+          the best-scoring system (OpenAI’s Operator) reaching only <strong>24.3%</strong> accuracy. These results highlight 
+          critical areas for improvement, including reliable source selection and more powerful multimodal capabilities.
+          To facilitate future research, BearCubs will be updated periodically to replace invalid or contaminated questions, 
+          keeping the benchmark fresh for future generations of web agents.</p>
         <DataTable columns={columns} data={parsedData} />
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <h2 className="text-3xl font-bold">Example Question</h2>
@@ -70,12 +95,58 @@ export default function Home() {
           <div className="flex flex-row gap-4 p-4">
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
+                <AvatarImage src="/ysong.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <p className="text-lg font-bold">Yixiao Song</p>
+            </div>
+          </div>
+          <div className="flex flex-row gap-4 p-4">
+            <div className="flex flex-col items-center justify-center gap-4">
+              <Avatar className="w-48 h-48">
                 <AvatarImage src="/kthai.jpg" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <p className="text-lg font-bold">Katherine Thai</p>
             </div>
           </div>
+          <div className="flex flex-row gap-4 p-4">
+            <div className="flex flex-col items-center justify-center gap-4">
+              <Avatar className="w-48 h-48">
+                <AvatarImage src="/cpham.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <p className="text-lg font-bold">Chau Minh Pham</p>
+            </div>
+          </div>
+          <div className="flex flex-row gap-4 p-4">
+            <div className="flex flex-col items-center justify-center gap-4">
+              <Avatar className="w-48 h-48">
+                <AvatarImage src="/ychang.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <p className="text-lg font-bold">Yapei Chang</p>
+            </div>
+          </div>          
+          <div className="flex flex-row gap-4 p-4">
+            <div className="flex flex-col items-center justify-center gap-4">
+              <Avatar className="w-48 h-48">
+                <AvatarImage src="/mnadaf.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <p className="text-lg font-bold">Mazin Nadaf</p>
+            </div>
+          </div>
+          <div className="flex flex-row gap-4 p-4">
+            <div className="flex flex-col items-center justify-center gap-4">
+              <Avatar className="w-48 h-48">
+                <AvatarImage src="/miyyer.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <p className="text-lg font-bold">Mohit Iyyer</p>
+            </div>
+          </div>
+
         </CollapsibleSection>
       </div>
     </div>
