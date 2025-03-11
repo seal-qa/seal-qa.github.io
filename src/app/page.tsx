@@ -74,25 +74,16 @@ export default function Home() {
         <DataTable columns={columns} data={parsedData} />
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <h2 className="text-3xl font-bold">Example Question</h2>
-          <Card className="p-4 w-max-w-[620px] flex flex-col items-center justify-center">
-            <CardContent className="max-w-[620px]">
-              <p className="text-lg text-muted-foreground">
-                In the virtual tour of the Museo de Ciencias Naturales de La
-                Plata, Buenos Aires, Argentina, how many columns are visible on
-                the entrance floor in the Hall area?
-              </p>
+          <Card className="p-4 w-max-w-[720px] flex flex-col items-center justify-center">
+            <CardContent className="max-w-[720px]">
+              <Image src="/example_1.png" alt="Example Question" height={450} width={720} layout="responsive"/>
+
             </CardContent>
           </Card>
         </div>
-        <CollapsibleSection
-          className="w-full flex flex-col items-center justify-center gap-4"
-          triggerComponent={
-            <Button variant="ghost" className="p-6 text-3xl font-bold" asChild>
-              <h2>Team</h2>
-            </Button>
-          }
-        >
-          <div className="flex flex-row gap-4 p-4">
+        <div className="w-full flex flex-col items-center justify-center gap-4">
+          <h2 className="text-3xl font-bold">Team</h2>
+          <div className="grid grid-cols-3 gap-4 p-4">
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/ysong.png" />
@@ -100,8 +91,6 @@ export default function Home() {
               </Avatar>
               <p className="text-lg font-bold">Yixiao Song</p>
             </div>
-          </div>
-          <div className="flex flex-row gap-4 p-4">
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/kthai.jpg" />
@@ -109,8 +98,6 @@ export default function Home() {
               </Avatar>
               <p className="text-lg font-bold">Katherine Thai</p>
             </div>
-          </div>
-          <div className="flex flex-row gap-4 p-4">
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/cpham.png" />
@@ -118,8 +105,6 @@ export default function Home() {
               </Avatar>
               <p className="text-lg font-bold">Chau Minh Pham</p>
             </div>
-          </div>
-          <div className="flex flex-row gap-4 p-4">
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/ychang.png" />
@@ -127,8 +112,6 @@ export default function Home() {
               </Avatar>
               <p className="text-lg font-bold">Yapei Chang</p>
             </div>
-          </div>          
-          <div className="flex flex-row gap-4 p-4">
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/mnadaf.png" />
@@ -136,8 +119,6 @@ export default function Home() {
               </Avatar>
               <p className="text-lg font-bold">Mazin Nadaf</p>
             </div>
-          </div>
-          <div className="flex flex-row gap-4 p-4">
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/miyyer.png" />
@@ -146,8 +127,7 @@ export default function Home() {
               <p className="text-lg font-bold">Mohit Iyyer</p>
             </div>
           </div>
-
-        </CollapsibleSection>
+        </div>
       </div>
     </div>
   );
