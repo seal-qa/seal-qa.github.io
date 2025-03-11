@@ -46,6 +46,20 @@ export function DataTable<TData, TValue>({
     "average_time.uncertain": false,
   });
 
+  // This useEffect handles mobile vs. desktop column visibility for "category"
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setColumnVisibility((prev) => ({ ...prev, category: false }));
+      } else {
+        setColumnVisibility((prev) => ({ ...prev, category: true }));
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const table = useReactTable({
     data,
     columns,
@@ -88,6 +102,16 @@ export function DataTable<TData, TValue>({
           }}
         >
           Show Time Taken
+        </Toggle>
+
+        {/* Toggle for "Category" column - visible only on mobile */}
+        <Toggle
+          className="md:hidden"
+          onClick={() => {
+            table.getColumn("category")?.toggleVisibility();
+          }}
+        >
+          Show Category
         </Toggle>
       </div>
       <div className="rounded-md border">
