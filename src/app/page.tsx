@@ -42,11 +42,11 @@ export default function Home() {
             <Button asChild>
               <Link href="/BearCubs_20250310.jsonl" download>Download questions</Link>
             </Button>
-            <Button>
+            <Button asChild>
               <Link href="https://forms.gle/dLj4QWRgAu4bpcE96">Submit a question</Link>
             </Button>
-            <Button>
-              <Link href="">Evaluate your agent</Link>
+            <Button asChild>
+              <Link href="https://forms.gle/JsGCV4FjpTPn16Md7">Evaluate your agent</Link>
             </Button>
             <Button asChild>
               <Link href="mailto:bearcubsteam@gmail.com">Contact us</Link>
@@ -77,7 +77,18 @@ export default function Home() {
           <Card className="p-4 w-max-w-[720px] flex flex-col items-center justify-center">
             <CardContent className="max-w-[720px]">
               <Image src="/example_1.png" alt="Example Question" height={450} width={720} layout="responsive"/>
-
+              <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-2 md:gap-4">
+                <p>View trajectories for:</p>
+                <Button asChild>
+                  <Link href="https://drive.google.com/file/d/1h5OuhmTT5HSE1gvqmXiiTaskVvtDZOJM/view">Computer Use</Link>
+                </Button>
+                <Button asChild>
+                  <Link href="https://www.youtube.com/watch?v=6xMUqsS7jcM">Proxy</Link>
+                </Button>
+                <Button asChild>
+                  <Link href="https://www.youtube.com/watch?v=HAdKKLmlhy4">Operator</Link>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -128,6 +139,13 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="w-full flex flex-col items-center justify-center gap-4">
+          <Card className="p-4 w-max-w-[720px] flex flex-col items-center justify-center">
+            <p>Website last updated March 11, 2025</p>
+          </Card>
+        </div>
+
+
       </div>
     </div>
   );
