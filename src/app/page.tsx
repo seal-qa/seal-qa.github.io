@@ -83,7 +83,7 @@ export default function Home() {
         </div>
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <h2 className="text-3xl font-bold">Team</h2>
-          <div className="grid grid-cols-3 gap-4 p-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/ysong.png" />
