@@ -54,23 +54,29 @@ export default function Home() {
           </div>
         </header>
         <Separator />
-        <p className="text-md text-muted-foreground">Modern web agents possess <em>computer use</em> abilities 
-          that allow them to interact with webpages by sending commands to a virtual keyboard and mouse. 
-          While such agents have considerable potential to assist human users with complex tasks, evaluating 
-          their capabilities in real-world settings poses a major challenge. To this end, we introduce BearCubs, 
-          a “small but mighty” benchmark of 111 information-seeking questions designed to evaluate a web agent’s 
-          ability to search, browse, and identify factual information from the web. Unlike prior web agent benchmarks, 
-          solving BearCubs requires (1) accessing <em>live</em> web content rather than synthetic or simulated pages, 
-          which captures the unpredictability of real-world web interactions; and (2) performing a broad range of <em>multimodal</em> interactions
-          (e.g., video understanding, 3D navigation) that cannot be bypassed via text-based
-          workarounds. Each question in BearCubs has a corresponding short, unambiguous answer and a human-validated browsing 
-          trajectory, allowing for transparent evaluation of agent performance and strategies. A human study confirms that 
-          questions are solvable but non-trivial (<strong>84.7%</strong> human accuracy), revealing search inefficiencies and
-          domain knowledge gaps as common failure points. By contrast, state-of-the-art computer-using agents underperform, with 
-          the best-scoring system (OpenAI’s Operator) reaching only <strong>24.3%</strong> accuracy. These results highlight 
-          critical areas for improvement, including reliable source selection and more powerful multimodal capabilities.
-          To facilitate future research, BearCubs will be updated periodically to replace invalid or contaminated questions, 
-          keeping the benchmark fresh for future generations of web agents.</p>
+        <p className="text-md text-muted-foreground">🐻 BearCubs 🐻 evaluates the capability of web agents to search, browse,
+        and extract factual information from the live web through complex and diverse text-based and multimodal interactions. 
+        For more details, check out our paper! ✨
+        <br />
+        <br />
+        About the benchmark: BearCubs comprises 111 carefully crafted questions covering a wide range of topics, including but 
+        not limited to music, maps, videos, games, and virtual tours. Each question is designed to be adversarial to 
+        closed-book LLMs and simple Google searches. Answers are concise and uniquely formulated to eliminate ambiguity 
+        and paraphrasing. Additionally, all questions can be answered without accessing content behind paywalls or login 
+        restrictions.
+        <br />
+        <br />
+        Data updates: We continuously validate existing questions and answers while introducing new, more challenging ones. 
+        Check the bottom of the webpage for the latest update date. If you're interested in pushing the boundaries of state-of-the-art 
+        agents, consider contributing to the BearCubs dataset! 🚀</p>
+
+        <Separator />
+        <div className="w-full flex flex-col items-center justify-center gap-4">
+          <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+            <p>In the table below, a <strong>CU</strong> agent is an agent with <strong>computer use</strong> capabilities that can perform interactive browsing
+            by processing pixels on the screen and controlling a virtual keyboard and mouse.</p>
+          </Card>
+        </div>
         <DataTable columns={columns} data={parsedData} />
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <h2 className="text-3xl font-bold">Example Question</h2>
