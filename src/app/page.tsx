@@ -40,7 +40,7 @@ export default function Home() {
               <Link href="https://arxiv.org/abs/2503.07919">Paper</Link>
             </Button>
             <Button asChild>
-              <a href="/BearCubs_20250310.json" download>Download questions</a>
+              <a href="/BearCubs_20250310.json.zip" download>Download questions</a>
             </Button>
             <Button asChild>
               <Link href="https://forms.gle/dLj4QWRgAu4bpcE96">Submit a question</Link>
