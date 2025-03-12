@@ -37,10 +37,10 @@ export default function Home() {
           </div>
           <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-2 md:gap-4">
             <Button asChild>
-              <Link href="">Paper</Link>
+              <Link href="https://arxiv.org/abs/2503.07919">Paper</Link>
             </Button>
             <Button asChild>
-              <Link href="/BearCubs_20250310.jsonl" download>Download questions</Link>
+              <a href="/BearCubs_20250310.json" download>Download questions</a>
             </Button>
             <Button asChild>
               <Link href="https://forms.gle/dLj4QWRgAu4bpcE96">Submit a question</Link>
