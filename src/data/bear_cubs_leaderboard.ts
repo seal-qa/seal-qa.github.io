@@ -79,7 +79,26 @@ export const bearCubsLeaderboard = [
       uncertain: "8:33",
     },
   },
-
+  {
+    category: "Non-CU agents",
+    model: "Google Deep Research",
+    accuracy: {
+      all: "24.3%",
+      text_only: "44.6%",
+      multimodal: "3.6%",
+    },
+    answer_label: {
+      correct: "27",
+      wrong: "37",
+      uncertain: "7",
+      none: "40",
+    },
+    average_time: {
+      correct: "4:24",
+      wrong: "4:02",
+      uncertain: "4:02",
+    },
+  },
   {
     category: "Non-CU agents",
     model: "Grok3 DeepSearch",
