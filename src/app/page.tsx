@@ -20,11 +20,11 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center gap-1 md:gap-2">
             <div className="flex flex-row items-center justify-center gap-2 md:gap-4">
               <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-center">
-                BearCubs
+                SealQA
               </h1>
               <Image
-                src="/gummy-bear.png"
-                alt="Bearcubs Logo"
+                src="/sealqalogo.png"
+                alt="SealQA Logo"
                 width={100}
                 height={100}
                 className="w-[64px] md:w-[100px] h-[64px] md:h-[100px]"
@@ -32,49 +32,47 @@ export default function Home() {
             </div>
             {/* Small tagline text */}
             <p className="text-center text-sm md:text-base text-muted-foreground italic leading-tight">
-              A small but mighty benchmark for computer-using web agents
+            Raising the bar for AI reasoning in the messy world of web search.
             </p>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-2 md:gap-4">
             <Button asChild>
-              <Link href="https://arxiv.org/abs/2503.07919">Paper</Link>
+              <Link href="https://arxiv.org/abs/2506.01062">Paper</Link>
             </Button>
             <Button asChild>
               <a href="/BearCubs_20250310.json.zip" download>Download questions</a>
             </Button>
             <Button asChild>
-              <Link href="https://forms.gle/dLj4QWRgAu4bpcE96">Submit a question</Link>
+              <Link href="https://forms.gle/RbkwQnSvw6njumat9">Submit a question</Link>
             </Button>
             <Button asChild>
-              <Link href="https://forms.gle/JsGCV4FjpTPn16Md7">Evaluate your agent</Link>
+              <Link href="https://forms.gle/RbkwQnSvw6njumat9">To be added</Link>
             </Button>
             <Button asChild>
-              <Link href="mailto:bearcubsteam@gmail.com">Contact us</Link>
+              <Link href="mailto:tuvu@vt.edu">Contact us</Link>
             </Button>
           </div>
         </header>
         <Separator />
-        <p className="text-md text-muted-foreground">🐻 BearCubs 🐻 evaluates the capability of web agents to search, browse,
-        and extract factual information from the live web through complex and diverse text-based and multimodal interactions. 
-        For more details, check out our paper! ✨
+        <p className="text-md text-muted-foreground">We introduce 🦭 SealQA 🦭, a novel benchmark designed to rigorously evaluate Search-Augmented Language Models. 
+        This challenge specifically targets scenarios where web search results present conflicting, noisy, or unhelpful information, exposing critical limitations in current AI models.
         <br />
         <br />
-        About the benchmark: BearCubs comprises 111 carefully crafted questions covering a wide range of topics, including but 
-        not limited to music, maps, videos, games, and virtual tours. Each question is designed to be adversarial to 
-        closed-book LLMs and simple Google searches. Answers are concise and uniquely formulated to eliminate ambiguity 
-        and paraphrasing. Additionally, all questions can be answered without accessing content behind paywalls or login 
-        restrictions.
+        The SEALQA benchmark challenges Search-Augmented Language Models (SALMs) with fact-seeking questions where web search results are conflicting, noisy, or unhelpful. It features three components:
+SEAL-0 (Main) & SEAL-HARD: Assess factual accuracy and reasoning, with SEAL-0 targeting questions where models like GPT-4.1 achieve near-zero accuracy.
+LONGSEAL: Tests long-context, multi-document reasoning in "needle-in-a-haystack" scenarios.
+Our evaluations reveal significant limitations in current frontier LLMs across all SEALQA flavors. For example, on SEAL-0, agentic models like O3 and O4-MINI achieved only 17.1% and 6.3% accuracy, respectively. Advanced reasoning models (e.g., DeepSeek-R1-671B, O3-MINI) are highly vulnerable to noisy search results, and increasing compute often yields no reliable gains. While recent models are less affected by "lost-in-the-middle," they struggle to identify relevant documents amidst numerous distractors in LONGSEAL.
+
+
         <br />
         <br />
-        Data updates: We continuously validate existing questions and answers while introducing new, more challenging ones. 
-        Check the bottom of the webpage for the latest update date. If you're interested in pushing the boundaries of state-of-the-art 
-        agents, consider contributing to the BearCubs dataset! 🚀</p>
+        SEALQA is publicly available at huggingface.co/datasets/vtllms/sealqa to facilitate future research. 🚀</p>
 
         <Separator />
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
-            <p>In the table below, a <strong>CU</strong> agent is an agent with <strong>computer use</strong> capabilities that can perform interactive browsing
-            by processing pixels on the screen and controlling a virtual keyboard and mouse.</p>
+          <p>Figure 1: <strong>Test-time scaling</strong> does not lead to <strong>reliable gains</strong> on SEALQA questions, with performance often 
+          <strong>plateauing</strong> or even <strong>declining early</strong>.</p>
           </Card>
         </div>
         <DataTable columns={columns} data={parsedData} />
@@ -106,48 +104,48 @@ export default function Home() {
                 <AvatarImage src="/ysong.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-              <p className="text-lg font-bold">Yixiao Song</p>
+              <p className="text-lg font-bold">Thinh Pham</p>
             </div>
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/kthai.jpg" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-              <p className="text-lg font-bold">Katherine Thai</p>
+              <p className="text-lg font-bold">Nguyen Nguyen</p>
             </div>
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/cpham.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-              <p className="text-lg font-bold">Chau Minh Pham</p>
+              <p className="text-lg font-bold">Pratibha Zunjare</p>
             </div>
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/ychang.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-              <p className="text-lg font-bold">Yapei Chang</p>
+              <p className="text-lg font-bold">Weiyuan Chen</p>
             </div>
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/mnadaf.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-              <p className="text-lg font-bold">Mazin Nadaf</p>
+              <p className="text-lg font-bold">Yu-Min Tseng</p>
             </div>
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
                 <AvatarImage src="/miyyer.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-              <p className="text-lg font-bold">Mohit Iyyer</p>
+              <p className="text-lg font-bold">Tu Vu</p>
             </div>
           </div>
         </div>
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <Card className="p-4 w-max-w-[720px] flex flex-col items-center justify-center">
-            <p>Website last updated April 22, 2025</p>
+            <p>Website last updated June 14, 2025</p>
           </Card>
         </div>
 

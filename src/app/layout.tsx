@@ -15,8 +15,8 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Bearcubs",
-  description: "Bearcubs leaderboard",
+  title: "SealQA",
+  description: "SealQA leaderboard",
 };
 
 export default function RootLayout({

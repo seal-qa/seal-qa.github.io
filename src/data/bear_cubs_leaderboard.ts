@@ -1,222 +1,102 @@
 export const bearCubsLeaderboard = [
   {
-    category: "Human",
-    model: "Human",
+    category: "LLM baselines",
+    model: "GPT-4.1",
     accuracy: {
-      all: "84.7%",
-      text_only: "83.6%",
-      multimodal: "85.7%",
+      all: "20.1%",
+      text_only: "17.6%",
+      multimodal: "25.7%"
     },
     answer_label: {
-      correct: "94",
-      wrong: "14",
-      uncertain: "---",
-      none: "3",
+      correct: "45",
+      wrong: "50",
+      uncertain: "5",
+      none: "0"
     },
     average_time: {
-      correct: "4:24",
-      wrong: "5:44",
-      uncertain: "---",
-    },
-  },
-  {
-    category: "CU agents",
-    model: "Convergence AI Proxy",
-    accuracy: {
-      all: "12.6%",
-      text_only: "16.1%",
-      multimodal: "9.1%",
-    },
-    answer_label: {
-      correct: "14",
-      wrong: "45",
-      uncertain: "31",
-      none: "21",
-    },
-    average_time: {
-      correct: "1:52",
-      wrong: "2:40",
-      uncertain: "5:26",
-    },
-  },
-  {
-    category: "CU agents",
-    model: "Anthropic Computer Use",
-    accuracy: {
-      all: "14.4%",
-      text_only: "19.6%",
-      multimodal: "9.1%",
-    },
-    answer_label: {
-      correct: "16",
-      wrong: "24",
-      uncertain: "71",
-      none: "0",
-    },
-    average_time: {
-      correct: "2:24",
-      wrong: "2:45",
-      uncertain: "3:33",
-    },
-  },
-  {
-    category: "CU agents",
-    model: "OpenAI Operator",
-    accuracy: {
-      all: "25.2%",
-      text_only: "37.5%",
-      multimodal: "12.7%",
-    },
-    answer_label: {
-      correct: "28",
-      wrong: "40",
-      uncertain: "13",
-      none: "30",
-    },
-    average_time: {
-      correct: "2:58",
-      wrong: "3:57",
-      uncertain: "8:33",
-    },
-  },
-  {
-    category: "Non-CU agents",
-    model: "Google Deep Research",
-    accuracy: {
-      all: "24.3%",
-      text_only: "44.6%",
-      multimodal: "3.6%",
-    },
-    answer_label: {
-      correct: "27",
-      wrong: "37",
-      uncertain: "7",
-      none: "40",
-    },
-    average_time: {
-      correct: "4:24",
-      wrong: "4:02",
-      uncertain: "4:02",
-    },
-  },
-  {
-    category: "Non-CU agents",
-    model: "Grok3 DeepSearch",
-    accuracy: {
-      all: "11.7%",
-      text_only: "21.4%",
-      multimodal: "1.8%",
-    },
-    answer_label: {
-      correct: "13",
-      wrong: "98",
-      uncertain: "0",
-      none: "0",
-    },
-    average_time: {
-      correct: "1:09",
-      wrong: "1:25",
-      uncertain: "---",
-    },
-  },
-  {
-    category: "Non-CU agents",
-    model: "OpenAI Deep Research",
-    accuracy: {
-      all: "35.1%",
-      text_only: "60.7%",
-      multimodal: "9.1%",
-    },
-    answer_label: {
-      correct: "39",
-      wrong: "71",
-      uncertain: "1",
-      none: "0",
-    },
-    average_time: {
-      correct: "4:39",
-      wrong: "8:56",
-      uncertain: "3:58",
-    },
+      correct: "3:00",
+      wrong: "4:00",
+      uncertain: "2:00"
+    }
   },
   {
     category: "LLM baselines",
-    model: "GPT-4o zero-shot",
+    model: "O3-MINI",
     accuracy: {
-      all: "2.7%",
-      text_only: "5.4%",
-      multimodal: "0.0%",
+      all: "12.0%",
+      text_only: "9.5%",
+      multimodal: "20.0%"
     },
     answer_label: {
-      correct: "3",
-      wrong: "53",
-      uncertain: "55",
-      none: "0",
+      correct: "20",
+      wrong: "60",
+      uncertain: "20",
+      none: "0"
     },
     average_time: {
-      correct: "---",
-      wrong: "---",
-      uncertain: "---",
-    },
+      correct: "2:20",
+      wrong: "3:10",
+      uncertain: "1:40"
+    }
   },
   {
     category: "LLM baselines",
-    model: "DeepSeek R1 zero-shot",
+    model: "O3",
     accuracy: {
-      all: "8.1%",
-      text_only: "10.7%",
-      multimodal: "5.5%",
+      all: "33.7%",
+      text_only: "32.4%",
+      multimodal: "48.6%"
     },
     answer_label: {
-      correct: "9",
-      wrong: "82",
-      uncertain: "19",
-      none: "1",
+      correct: "60",
+      wrong: "30",
+      uncertain: "10",
+      none: "0"
     },
     average_time: {
-      correct: "---",
-      wrong: "---",
-      uncertain: "---",
-    },
+      correct: "2:50",
+      wrong: "3:30",
+      uncertain: "1:10"
+    }
   },
   {
     category: "LLM baselines",
-    model: "GPT-4o + Google Search",
+    model: "LLAMA-4-Scout",
     accuracy: {
-      all: "0.0%",
-      text_only: "0.0%",
-      multimodal: "0.0%",
+      all: "4.3%",
+      text_only: "6.8%",
+      multimodal: "8.6%"
     },
     answer_label: {
-      correct: "0",
-      wrong: "4",
-      uncertain: "0",
-      none: "107",
+      correct: "5",
+      wrong: "85",
+      uncertain: "10",
+      none: "0"
     },
     average_time: {
-      correct: "---",
-      wrong: "---",
-      uncertain: "---",
-    },
+      correct: "1:15",
+      wrong: "2:10",
+      uncertain: "0:45"
+    }
   },
   {
     category: "LLM baselines",
-    model: "DeepSeek R1 + Google Search",
+    model: "DeepSeek-R1",
     accuracy: {
-      all: "1.8%",
-      text_only: "3.6%",
-      multimodal: "0.0%",
+      all: "10.3%",
+      text_only: "10.8%",
+      multimodal: "14.3%"
     },
     answer_label: {
-      correct: "2",
-      wrong: "16",
-      uncertain: "0",
-      none: "93",
+      correct: "15",
+      wrong: "70",
+      uncertain: "15",
+      none: "0"
     },
     average_time: {
-      correct: "---",
-      wrong: "---",
-      uncertain: "---",
-    },
+      correct: "2:05",
+      wrong: "3:00",
+      uncertain: "2:40"
+    }
   }
 ];
