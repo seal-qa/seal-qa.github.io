@@ -54,19 +54,27 @@ export default function Home() {
           </div>
         </header>
         <Separator />
-        <p className="text-md text-muted-foreground">We introduce 🦭 SealQA 🦭, a novel benchmark designed to rigorously evaluate Search-Augmented Language Models. 
-        This challenge specifically targets scenarios where web search results present conflicting, noisy, or unhelpful information, exposing critical limitations in current AI models.
+        <p className="text-md text-muted-foreground">We introduce SEALQA, a new challenge benchmark for evaluating SEarch-Augmented Language models on fact-seeking questions where web search yields conflicting, noisy, or unhelpful results. 
         <br />
         <br />
-        The SEALQA benchmark challenges Search-Augmented Language Models (SALMs) with fact-seeking questions where web search results are conflicting, noisy, or unhelpful. It features three components:
-SEAL-0 (Main) & SEAL-HARD: Assess factual accuracy and reasoning, with SEAL-0 targeting questions where models like GPT-4.1 achieve near-zero accuracy.
-LONGSEAL: Tests long-context, multi-document reasoning in "needle-in-a-haystack" scenarios.
-Our evaluations reveal significant limitations in current frontier LLMs across all SEALQA flavors. For example, on SEAL-0, agentic models like O3 and O4-MINI achieved only 17.1% and 6.3% accuracy, respectively. Advanced reasoning models (e.g., DeepSeek-R1-671B, O3-MINI) are highly vulnerable to noisy search results, and increasing compute often yields no reliable gains. While recent models are less affected by "lost-in-the-middle," they struggle to identify relevant documents amidst numerous distractors in LONGSEAL.
-
-
+        SEALQA comes in three flavors: (1) SEAL-0
+(main) and (2) SEAL-HARD, which assess factual accuracy and reasoning capabili-
+ties, with SEAL-0 focusing on the most challenging questions where chat models
+(e.g., GPT-4.1) typically achieve near-zero accuracy; and (3) LONGSEAL, which
+extends SEALQA to test long-context, multi-document reasoning in “needle-in-a-
+haystack” settings. Our evaluation reveals critical limitations in current models:
+Even frontier LLMS perform poorly across all SEALQA flavors. On SEAL-0, frontier
+agentic models equipped with tools like O3 and O4-MINI achieve only 17.1% and
+6.3% accuracy, respectively, at their best reasoning efforts. We find that advanced
+reasoning models such as DEEPSEEK-R1-671B and O3-MINI are highly vulnerable
+to noisy search results. Notably, increasing test-time compute does not yield re-
+liable gains across O3-MINI, O4-MINI, and O3, with performance often plateauing
+or even declining early. Additionally, while recent models are less affected by the
+“lost-in-the-middle” issue, they still fail to reliably identify relevant documents in
+LONGSEAL when faced with numerous distractors
         <br />
         <br />
-        SEALQA is publicly available at huggingface.co/datasets/vtllms/sealqa to facilitate future research. 🚀</p>
+        To facilitate future work, we release SEALQA at huggingface.co/datasets/vtllms/sealqa. 🚀</p>
 
         <Separator />
         <div className="w-full flex flex-col items-center justify-center gap-4">
@@ -146,6 +154,7 @@ Our evaluations reveal significant limitations in current frontier LLMs across a
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <Card className="p-4 w-max-w-[720px] flex flex-col items-center justify-center">
             <p>Website last updated June 14, 2025</p>
+            <p>We want to thank BEARCUBS for the template.</p>
           </Card>
         </div>
 
