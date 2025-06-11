@@ -40,7 +40,7 @@ export default function Home() {
               <Link href="https://arxiv.org/abs/2506.01062">Paper</Link>
             </Button>
             <Button asChild>
-              <a href="/BearCubs_20250310.json.zip" download>Download questions</a>
+              <a href="/sealqa_20250611.json.zip" download>Download questions</a>
             </Button>
             <Button asChild>
               <Link href="https://forms.gle/RbkwQnSvw6njumat9">Submit a question</Link>
@@ -78,10 +78,16 @@ LONGSEAL when faced with numerous distractors
 
         <Separator />
         <div className="w-full flex flex-col items-center justify-center gap-4">
+         
           <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
-          <p>Figure 1: <strong>Test-time scaling</strong> does not lead to <strong>reliable gains</strong> on SEALQA questions, with performance often 
+          <img src="/fig2.png" style={{ width: 'auto', height: 'auto' }} />
+               <p>Figure 2: <strong>Test-time scaling</strong> does not lead to <strong>reliable gains</strong> on SEALQA questions, with performance often 
           <strong>plateauing</strong> or even <strong>declining early</strong>.</p>
           </Card>
+          <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+                <img src="/fig1.png"  /><p>Figure 1: Accuracy of LLMS across benchmarks. <strong>SEALQA </strong>poses significant challenges to frontier models.</p>
+          </Card>
+
         </div>
         <DataTable columns={columns} data={parsedData} />
         <div className="w-full flex flex-col items-center justify-center gap-4">
@@ -109,42 +115,42 @@ LONGSEAL when faced with numerous distractors
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
-                <AvatarImage src="/ysong.png" />
+                <AvatarImage src="/thinh.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <p className="text-lg font-bold">Thinh Pham</p>
             </div>
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
-                <AvatarImage src="/kthai.jpg" />
+                <AvatarImage src="/nguyen.jpg" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <p className="text-lg font-bold">Nguyen Nguyen</p>
             </div>
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
-                <AvatarImage src="/cpham.png" />
+                <AvatarImage src="/pratibha.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <p className="text-lg font-bold">Pratibha Zunjare</p>
             </div>
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
-                <AvatarImage src="/ychang.png" />
+                <AvatarImage src="/weiyuan.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <p className="text-lg font-bold">Weiyuan Chen</p>
             </div>
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
-                <AvatarImage src="/mnadaf.png" />
+                <AvatarImage src="/yumin.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <p className="text-lg font-bold">Yu-Min Tseng</p>
             </div>
             <div className="flex flex-col items-center justify-center gap-4">
               <Avatar className="w-48 h-48">
-                <AvatarImage src="/miyyer.png" />
+                <AvatarImage src="/tuvu.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <p className="text-lg font-bold">Tu Vu</p>
