@@ -32,8 +32,7 @@ export default function Home() {
             </div>
             {/* Small tagline text */}
             <p className="text-center text-sm md:text-base text-muted-foreground italic leading-tight">
-            Raising the bar for AI reasoning in the messy world of web search.
-            </p>
+             Raising the Bar for Reasoning in Search-Augmented Language Models            </p>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-2 md:gap-4">
             <Button asChild>
