@@ -19,16 +19,17 @@ export default function Home() {
         <header className="w-full flex flex-col gap-2 md:gap-4">
           <div className="flex flex-col items-center justify-center gap-1 md:gap-2">
             <div className="flex flex-row items-center justify-center gap-2 md:gap-4">
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-center">
-                SealQA
-              </h1>
-              <Image
+             <Image
                 src="/sealqalogo.png"
                 alt="SealQA Logo"
                 width={100}
                 height={100}
                 className="w-[64px] md:w-[100px] h-[64px] md:h-[100px]"
               />
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-center">
+                SealQA
+              </h1>
+             
             </div>
             {/* Small tagline text */}
             <p className="text-center text-sm md:text-base text-muted-foreground italic leading-tight">
@@ -53,16 +54,16 @@ export default function Home() {
           </div>
         </header>
         <Separator />
-        <p className="text-md text-muted-foreground">We introduce SEALQA, a new challenge benchmark for evaluating SEarch-Augmented Language models on fact-seeking questions where web search yields conflicting, noisy, or unhelpful results. 
+        <p className="text-md text-muted-foreground">We introduce SealQA, a new challenge benchmark for evaluating SEarch-Augmented Language models on fact-seeking questions where web search yields conflicting, noisy, or unhelpful results. 
         <br />
         <br />
-        SEALQA comes in three flavors: (1) SEAL-0
+        SealQA comes in three flavors: (1) SEAL-0
 (main) and (2) SEAL-HARD, which assess factual accuracy and reasoning capabilities,
  with SEAL-0 focusing on the most challenging questions where chat models
 (e.g., GPT-4.1) typically achieve near-zero accuracy; and (3) LONGSEAL, which
-extends SEALQA to test long-context, multi-document reasoning in <i>needle-in-a-
+extends SealQA to test long-context, multi-document reasoning in <i>needle-in-a-
 haystack</i> settings. Our evaluation reveals critical limitations in current models:
-Even frontier LLMS perform poorly across all SEALQA flavors. On SEAL-0, frontier
+Even frontier LLMS perform poorly across all SealQA flavors. On SEAL-0, frontier
 agentic models equipped with tools like O3 and O4-MINI achieve only 17.1% and
 6.3% accuracy, respectively, at their best reasoning efforts. We find that advanced
 reasoning models such as DEEPSEEK-R1-671B and O3-MINI are highly vulnerable
@@ -73,18 +74,18 @@ or even declining early. Additionally, while recent models are less affected by 
 LONGSEAL when faced with numerous distractors
         <br />
         <br />
-        To facilitate future work, we release SEALQA at huggingface.co/datasets/vtllms/sealqa. 🚀</p>
+        To facilitate future work, we release SealQA at <a href="huggingface.co/datasets/vtllms/SealQA">huggingface.co/datasets/vtllms/SealQA</a>. 🚀</p>
 
         <Separator />
         <div className="w-full flex flex-col items-center justify-center gap-4">
          
           <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
           <img src="/fig2.png" style={{ width: 'auto', height: 'auto' }} />
-               <p>Figure 1: <strong>Test-time scaling</strong> does not lead to <strong>reliable gains</strong> on SEALQA questions, with performance often 
+               <p>Figure 1: <strong>Test-time scaling</strong> does not lead to <strong>reliable gains</strong> on SealQA questions, with performance often 
           <strong>plateauing</strong> or even <strong>declining early</strong>.</p>
           </Card>
           <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
-                <img src="/fig1.png"  /><p>Figure 2: Accuracy of LLMS across benchmarks. <strong>SEALQA </strong>poses significant challenges to frontier models.</p>
+                <img src="/fig1.png"  /><p>Figure 2: Accuracy of LLMS across benchmarks. <strong>SealQA </strong>poses significant challenges to frontier models.</p>
           </Card>
 
         </div>
