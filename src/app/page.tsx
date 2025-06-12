@@ -80,11 +80,11 @@ LONGSEAL when faced with numerous distractors
          
           <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
           <img src="/fig2.png" style={{ width: 'auto', height: 'auto' }} />
-               <p>Figure 2: <strong>Test-time scaling</strong> does not lead to <strong>reliable gains</strong> on SEALQA questions, with performance often 
+               <p>Figure 1: <strong>Test-time scaling</strong> does not lead to <strong>reliable gains</strong> on SEALQA questions, with performance often 
           <strong>plateauing</strong> or even <strong>declining early</strong>.</p>
           </Card>
           <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
-                <img src="/fig1.png"  /><p>Figure 1: Accuracy of LLMS across benchmarks. <strong>SEALQA </strong>poses significant challenges to frontier models.</p>
+                <img src="/fig1.png"  /><p>Figure 2: Accuracy of LLMS across benchmarks. <strong>SEALQA </strong>poses significant challenges to frontier models.</p>
           </Card>
 
         </div>
