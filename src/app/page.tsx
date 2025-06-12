@@ -57,11 +57,10 @@ export default function Home() {
         <br />
         <br />
         SEALQA comes in three flavors: (1) SEAL-0
-(main) and (2) SEAL-HARD, which assess factual accuracy and reasoning capabili-
-ties, with SEAL-0 focusing on the most challenging questions where chat models
+(main) and (2) SEAL-HARD, which assess factual accuracy and reasoning capabilities, with SEAL-0 focusing on the most challenging questions where chat models
 (e.g., GPT-4.1) typically achieve near-zero accuracy; and (3) LONGSEAL, which
-extends SEALQA to test long-context, multi-document reasoning in “needle-in-a-
-haystack” settings. Our evaluation reveals critical limitations in current models:
+extends SEALQA to test long-context, multi-document reasoning in <em>needle-in-a-
+haystack</em> settings. Our evaluation reveals critical limitations in current models:
 Even frontier LLMS perform poorly across all SEALQA flavors. On SEAL-0, frontier
 agentic models equipped with tools like O3 and O4-MINI achieve only 17.1% and
 6.3% accuracy, respectively, at their best reasoning efforts. We find that advanced
