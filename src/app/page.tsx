@@ -103,23 +103,26 @@ export default function Home() {
         {/* <DataTable columns={columns} data={parsedData} /> */}
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <h2 className="text-3xl font-bold">Example Questions</h2>
-          <Card className="p-4 w-max-w-[720px] flex flex-col items-center justify-center">
-            <CardContent className="max-w-[720px]">
-              <Image src="/example_1.png" alt="Example Question" height={450} width={720} layout="responsive"/>
-              <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-2 md:gap-4">
-                {/* <p>View trajectories for:</p>
-                <Button asChild>
-                  <Link href="https://drive.google.com/file/d/1h5OuhmTT5HSE1gvqmXiiTaskVvtDZOJM/view">Computer Use</Link>
-                </Button>
-                <Button asChild>
-                  <Link href="https://www.youtube.com/watch?v=6xMUqsS7jcM">Proxy</Link>
-                </Button>
-                <Button asChild>
-                  <Link href="https://www.youtube.com/watch?v=HAdKKLmlhy4">Operator</Link>
-                </Button> */}
-              </div>
-            </CardContent>
-          </Card>
+          <figure className="p-4 w-max-w-[720px] flex flex-col items-center justify-center">
+    <CardContent className="max-w-[720px]">
+      <Image
+        src="/example_1.png"
+        alt="Example Question"
+        height={450}
+        width={720}
+        layout="responsive"
+        className="rounded-lg"
+      />
+
+      <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-2 md:gap-4">
+        {/* …any additional content below the image… */}
+      </div>
+    </CardContent>
+
+    <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+      Figure 4: SEALQA questions test a broad range of reasoning skills that are often overlooked in existing benchmarks.
+    </figcaption>
+  </figure>
         </div>
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <h2 className="text-3xl font-bold">Team</h2>
