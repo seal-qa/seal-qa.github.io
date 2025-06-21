@@ -22,9 +22,9 @@ export default function Home() {
              <Image
                 src="/sealqalogo.png"
                 alt="SealQA Logo"
-                width={100}
+                width={350}
                 height={100}
-                className="w-[64px] md:w-[100px] h-[64px] md:h-[100px]"
+                className="w-[64px] md:w-[125px] h-[64px] md:h-[100px]"
               />
               <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-center">
                 SealQA
@@ -55,7 +55,7 @@ export default function Home() {
         </header>
         <Separator />
         <p className="text-md text-muted-foreground">We introduce SealQA, a new challenge benchmark for evaluating SEarch-Augmented Language models on fact-seeking questions where web search yields conflicting, noisy, or unhelpful results. <br />
-          SealQA comes in three flavors: (1) Seal-0 (main) and (2) Seal-Hard, which assess factual accuracy and reasoning capabilities,
+        <br />   SealQA comes in three flavors: (1) Seal-0 (main) and (2) Seal-Hard, which assess factual accuracy and reasoning capabilities,
           with Seal-0 focusing on the most challenging questions where chat models (e.g., GPT-4.1) typically achieve near-zero accuracy;
           and (3) LongSeal, which extends SealQA to test long-context, multi-document reasoning in "needle-in-a-haystack" settings.
           Our evaluation reveals critical limitations in current models: 
@@ -65,31 +65,49 @@ export default function Home() {
           DeepSeek-R1-671B and o3-mini are highly vulnerable to noisy search results. Notably, increasing test-time
           compute does not yield reliable gains across o3-mini, o4-mini, and o3, with performance often plateauing or 
           even declining early. Additionally, while recent models are less affected by the "lost-in-the-middle" issue, 
-          they still fail to reliably identify relevant documents in LongSeal when faced with numerous distractors.
+          they still fail to reliably identify relevant documents in LongSeal when faced with numerous distractors.<br />
              <br />
         To facilitate future work, we release SealQA at <a href="https://huggingface.co/datasets/vtllms/sealqa">huggingface.co/datasets/vtllms/SealQA</a>. 🚀</p>
 
         <Separator />
-        <div className="w-full flex flex-col items-center justify-center gap-4">
-         
-          <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
-          <img src="/fig2.png" style={{ width: 'auto', height: 'auto' }} />
-               <p>Figure 1: <strong>Test-time scaling</strong> does not lead to <strong>reliable gains</strong> on SealQA questions, with performance often 
-          <strong>plateauing</strong> or even <strong>declining early</strong>.</p>
-          </Card>
-          <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
-                <img src="/fig1.png"  /><p>Figure 2: Accuracy of LLMS across benchmarks. <strong>SealQA </strong>poses significant challenges to frontier models.</p>
-          </Card>
 
-        </div>
-        <DataTable columns={columns} data={parsedData} />
+<div className="w-full flex flex-col items-center justify-center gap-4">
+  {/* Figure 1 */}
+  <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+    <img src="/fig2.png" alt="Figure 1" style={{ width: 'auto', height: 'auto' }} />
+    <p className="mt-2 text-sm text-muted-foreground text-center">
+      Figure 1: Test-time scaling does not lead to reliable gains on SealQA questions,
+      with performance often plateauing or even declining early.
+    </p>
+  </Card>
+
+  {/* Figure 2 */}
+  <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+    <img src="/fig1.png" alt="Figure 2" style={{ width: '1000', height: '400' }} />
+    <p className="mt-2 text-sm text-muted-foreground text-center">
+      Figure 2: Accuracy of LLMs across benchmarks. SealQA poses significant challenges
+      to frontier models.
+    </p>
+  </Card>
+
+  {/* Figure 3 */}
+  <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+    <img src="/fig3.png" alt="Figure 3" style={{ width: '1000', height: '600' }} />
+    <p className="mt-2 text-sm text-muted-foreground text-center">
+      Figure 3: SEALQA requires intensive reasoning to resolve ambiguity, filter out
+      misinformation, or reconcile conflicting evidence.
+    </p>
+  </Card>
+</div>
+
+        {/* <DataTable columns={columns} data={parsedData} /> */}
         <div className="w-full flex flex-col items-center justify-center gap-4">
-          <h2 className="text-3xl font-bold">Example Question</h2>
+          <h2 className="text-3xl font-bold">Example Questions</h2>
           <Card className="p-4 w-max-w-[720px] flex flex-col items-center justify-center">
             <CardContent className="max-w-[720px]">
               <Image src="/example_1.png" alt="Example Question" height={450} width={720} layout="responsive"/>
               <div className="flex flex-col md:flex-row items-center justify-start md:justify-center gap-2 md:gap-4">
-                <p>View trajectories for:</p>
+                {/* <p>View trajectories for:</p>
                 <Button asChild>
                   <Link href="https://drive.google.com/file/d/1h5OuhmTT5HSE1gvqmXiiTaskVvtDZOJM/view">Computer Use</Link>
                 </Button>
@@ -98,7 +116,7 @@ export default function Home() {
                 </Button>
                 <Button asChild>
                   <Link href="https://www.youtube.com/watch?v=HAdKKLmlhy4">Operator</Link>
-                </Button>
+                </Button> */}
               </div>
             </CardContent>
           </Card>
