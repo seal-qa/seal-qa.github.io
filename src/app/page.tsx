@@ -94,7 +94,7 @@ export default function Home() {
   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
     <img src="/fig3.png" alt="Figure 3" style={{ width: '1000', height: '600' }} />
     <p className="mt-2 text-sm text-muted-foreground text-center">
-      Figure 3: SEALQA requires intensive reasoning to resolve ambiguity, filter out
+      Figure 3: SealQA requires intensive reasoning to resolve ambiguity, filter out
       misinformation, or reconcile conflicting evidence.
     </p>
   </Card>
@@ -120,9 +120,65 @@ export default function Home() {
     </CardContent>
 
     <figcaption className="mt-2 text-center text-sm text-muted-foreground">
-      Figure 4: SEALQA questions test a broad range of reasoning skills that are often overlooked in existing benchmarks.
+      Figure 4: SealQA questions test a broad range of reasoning skills that are often overlooked in existing benchmarks.
     </figcaption>
   </figure>
+
+  <div className="w-full flex flex-col items-center justify-center gap-4">
+    {/* Table 1 */}
+  <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+    <img src="/table1.png" alt="Table 1" style={{ width: '1000', height: '600' }} />
+    <p className="mt-2 text-sm text-muted-foreground text-center">
+    Table 1: Accuracy on Seal-0 and Seal-Hard. Frontier LLMS face significant challenges on SealQA questions. 
+    † indicates results using ChatGPT’s built-in search; all other search-based results use FreshPrompt [Vu et al., 2024].
+    </p>
+  </Card>
+    {/* Table 2 */}
+  <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+    <img src="/table2.png" alt="Table 2" style={{ width: '1000', height: '600' }} />
+    <p className="mt-2 text-sm text-muted-foreground text-center">
+    Table 2: On Seal-Hard, LLMS tend to underperform on cross-lingual reasoning (Q4) and false- premise detection (Q5) compared to advanced reasoning (Q1), 
+    entity/event disambiguation (Q2), and temporal tracking (Q3).
+    </p>
+  </Card>
+
+    {/* Table 3 */}
+    <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+    <img src="/table3.png" alt="Table 3" style={{ width: '1000', height: '600' }} />
+    <p className="mt-2 text-sm text-muted-foreground text-center">
+    Table 3: Questions that involve rapidly changing information, i.e., fast-changing questions, 
+    pose significant challenges for LLMS on Seal-Hard.
+    </p>
+  </Card>
+
+   {/* Table 4 */}
+   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+    <img src="/table4.png" alt="Table 4" style={{ width: '1000', height: '600' }} />
+    <p className="mt-2 text-sm text-muted-foreground text-center">
+    Table 4: LLMS struggle with questions that involve recent information on Seal-Hard.
+    </p>
+  </Card>
+
+   {/* Table 5 */}
+   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+    <img src="/table5.png" alt="Table 5" style={{ width: '1000', height: '600' }} />
+    <p className="mt-2 text-sm text-muted-foreground text-center">
+    Table 5: On Seal-Hard, performance degrades more when search results are uniformly unhelpful than when they contain conflicting answers.
+    </p>
+  </Card>
+
+   {/* Table 6 */}
+   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+    <img src="/table6.png" alt="Table 6" style={{ width: '1000', height: '600' }} />
+    <p className="mt-2 text-sm text-muted-foreground text-center">
+    Table 6: SealQA also poses challenges for humans.
+    </p>
+  </Card>
+
+{/* more */}
+
+  </div>
+
         </div>
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <h2 className="text-3xl font-bold">Team</h2>
