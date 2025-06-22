@@ -229,7 +229,7 @@ export default function Home() {
         </div>
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <Card className="p-4 w-max-w-[720px] flex flex-col items-center justify-center">
-            <p>Website last updated June 12, 2025</p>
+            <p>Website last updated June 22, 2025</p>
             <p>We want to thank BEARCUBS for the template.</p>
           </Card>
         </div>
