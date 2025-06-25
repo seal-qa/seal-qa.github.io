@@ -72,6 +72,18 @@ export default function Home() {
         <Separator />
 
 <div className="w-full flex flex-col items-center justify-center gap-4">
+
+
+    {/* Table 1 */}
+  <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
+    <img src="/table1.png" alt="Table 1" style={{ width: '1000', height: '600' }} />
+    <p className="mt-2 text-sm text-muted-foreground text-center">
+    Table 1: Accuracy on Seal-0 and Seal-Hard. Frontier LLMS face significant challenges on SealQA questions. 
+    † indicates results using ChatGPT’s built-in search; all other search-based results use FreshPrompt [Vu et al., 2024].
+    </p>
+  </Card>
+   
+
   {/* Figure 1 */}
   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
     <img src="/fig2.png" alt="Figure 1" style={{ width: 'auto', height: 'auto' }} />
@@ -124,15 +136,8 @@ export default function Home() {
     </figcaption>
   </figure>
 </div>
-  <div className="w-full flex flex-col items-center justify-center gap-4">
-    {/* Table 1 */}
-  <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
-    <img src="/table1.png" alt="Table 1" style={{ width: '1000', height: '600' }} />
-    <p className="mt-2 text-sm text-muted-foreground text-center">
-    Table 1: Accuracy on Seal-0 and Seal-Hard. Frontier LLMS face significant challenges on SealQA questions. 
-    † indicates results using ChatGPT’s built-in search; all other search-based results use FreshPrompt [Vu et al., 2024].
-    </p>
-  </Card>
+
+     </div>
     {/* Table 2
   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
     <img src="/table2.png" alt="Table 2" style={{ width: '1000', height: '600' }} />
@@ -177,9 +182,9 @@ export default function Home() {
  */}
 {/* more */}
 
-  </div> 
+ 
 
-        </div>
+      
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <h2 className="text-3xl font-bold">Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
