@@ -123,7 +123,7 @@ export default function Home() {
       Figure 4: SealQA questions test a broad range of reasoning skills that are often overlooked in existing benchmarks.
     </figcaption>
   </figure>
-
+</div>
   <div className="w-full flex flex-col items-center justify-center gap-4">
     {/* Table 1 */}
   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
