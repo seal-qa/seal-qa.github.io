@@ -71,17 +71,6 @@ export default function Home() {
 
         <Separator />
 
-        <div className="w-full flex flex-col items-center justify-center gap-4">
-    {/* Table 1 */}
-  <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
-    <img src="/table1.png" alt="Table 1" style={{ width: '1000', height: '600' }} />
-    <p className="mt-2 text-sm text-muted-foreground text-center">
-    Table 1: Accuracy on Seal-0 and Seal-Hard. Frontier LLMS face significant challenges on SealQA questions. 
-    † indicates results using ChatGPT’s built-in search; all other search-based results use FreshPrompt [Vu et al., 2024].
-    </p>
-  </Card>
-  </div>
-
 <div className="w-full flex flex-col items-center justify-center gap-4">
   {/* Figure 1 */}
   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
@@ -91,7 +80,7 @@ export default function Home() {
       with performance often plateauing or even declining early.
     </p>
   </Card>
-</div>
+
   {/* Figure 2 
   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
     <img src="/fig1.png" alt="Figure 2" style={{ width: '1000', height: '400' }} />
@@ -109,11 +98,10 @@ export default function Home() {
       misinformation, or reconcile conflicting evidence.
     </p>
   </Card>
-  */}
-
-
+</div>
+*/}
         {/* <DataTable columns={columns} data={parsedData} /> */}
-<div className="w-full flex flex-col items-center justify-center gap-4">
+        <div className="w-full flex flex-col items-center justify-center gap-4">
           <h2 className="text-3xl font-bold">Example Questions</h2>
           <figure className="p-4 w-max-w-[720px] flex flex-col items-center justify-center">
     <CardContent className="max-w-[720px]">
@@ -135,11 +123,9 @@ export default function Home() {
       Figure 4: SealQA questions test a broad range of reasoning skills that are often overlooked in existing benchmarks.
     </figcaption>
   </figure>
-</div>
-{/* 
+
   <div className="w-full flex flex-col items-center justify-center gap-4">
     {/* Table 1 */}
-    {/* 
   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
     <img src="/table1.png" alt="Table 1" style={{ width: '1000', height: '600' }} />
     <p className="mt-2 text-sm text-muted-foreground text-center">
@@ -147,7 +133,7 @@ export default function Home() {
     † indicates results using ChatGPT’s built-in search; all other search-based results use FreshPrompt [Vu et al., 2024].
     </p>
   </Card>
-    {/* Table 2 */}{/* 
+    {/* Table 2
   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
     <img src="/table2.png" alt="Table 2" style={{ width: '1000', height: '600' }} />
     <p className="mt-2 text-sm text-muted-foreground text-center">
@@ -155,8 +141,8 @@ export default function Home() {
     entity/event disambiguation (Q2), and temporal tracking (Q3).
     </p>
   </Card>
-
-    {/* Table 3 */}{/* 
+ */}
+    {/* Table 3 
     <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
     <img src="/table3.png" alt="Table 3" style={{ width: '1000', height: '600' }} />
     <p className="mt-2 text-sm text-muted-foreground text-center">
@@ -164,34 +150,36 @@ export default function Home() {
     pose significant challenges for LLMS on Seal-Hard.
     </p>
   </Card>
-
-   {/* Table 4 */}{/* 
+*/}
+   {/* Table 4
    <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
     <img src="/table4.png" alt="Table 4" style={{ width: '1000', height: '600' }} />
     <p className="mt-2 text-sm text-muted-foreground text-center">
     Table 4: LLMS struggle with questions that involve recent information on Seal-Hard.
     </p>
   </Card>
-
-   {/* Table 5 */}{/* 
+ */}
+   {/* Table 5
    <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
     <img src="/table5.png" alt="Table 5" style={{ width: '1000', height: '600' }} />
     <p className="mt-2 text-sm text-muted-foreground text-center">
     Table 5: On Seal-Hard, performance degrades more when search results are uniformly unhelpful than when they contain conflicting answers.
     </p>
   </Card>
-
-   {/* Table 6 */}{/* 
+ */}
+   {/* Table 6
    <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
     <img src="/table6.png" alt="Table 6" style={{ width: '1000', height: '600' }} />
     <p className="mt-2 text-sm text-muted-foreground text-center">
     Table 6: SealQA also poses challenges for humans.
     </p>
   </Card>
-*/}
+ */}
 {/* more */}
 
-     
+  </div>
+
+        </div>
         <div className="w-full flex flex-col items-center justify-center gap-4">
           <h2 className="text-3xl font-bold">Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
