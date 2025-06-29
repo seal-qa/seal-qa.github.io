@@ -3,14 +3,14 @@ import Link from "next/link";
 import type { RowData } from "@/components/results-table/columns";
 import { DataTable } from "@/components/results-table/data-table";
 import { columns } from "@/components/results-table/columns";
-import { sealqaLeaderboard } from "@/data/sealqa_leaderboard";
+import { bearCubsLeaderboard } from "@/data/bear_cubs_leaderboard";
 import { CollapsibleSection } from "@/components/dropdown-section";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 export default function Home() {
-  const parsedData: RowData[] = sealqaLeaderboard;
+  const parsedData: RowData[] = bearCubsLeaderboard;
   return (
     // Main container
     <div className="w-full h-full flex flex-col items-center justify-baseline px-0 py-2 md:p-8">
@@ -73,8 +73,6 @@ export default function Home() {
 
 <div className="w-full flex flex-col items-center justify-center gap-4">
 
-        <DataTable columns={columns} data={parsedData} />
-
 
     {/* Table 1 */}
   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">
@@ -85,7 +83,6 @@ export default function Home() {
     </p>
   </Card>
    
-
 
   {/* Figure 1 */}
   <Card className="p-4 w-max-w-[360px] flex flex-col items-center justify-center">

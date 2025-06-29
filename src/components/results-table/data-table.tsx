@@ -1,11 +1,15 @@
-// data-table.tsx
 "use client";
 
 import {
+  type ColumnDef,
   flexRender,
   getCoreRowModel,
   useReactTable,
-  type ColumnDef,
+  type ColumnFiltersState,
+  getFilteredRowModel,
+  type SortingState,
+  getSortedRowModel,
+  type VisibilityState,
 } from "@tanstack/react-table";
 
 import {
@@ -16,73 +20,170 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useEffect, useState } from "react";
 
-interface DataTableProps<TData> {
-  columns: ColumnDef<TData>[];
+import { MultiSelectFilter } from "./multi-select-filter";
+import { Toggle } from "../ui/toggle";
+
+interface DataTableProps<TData, TValue> {
+  columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-export function DataTable<TData extends { category: string }>({
+export function DataTable<TData, TValue>({
   columns,
   data,
-}: DataTableProps<TData>) {
+}: DataTableProps<TData, TValue>) {
+  const [sorting, setSorting] = useState<SortingState>([{ id: "accuracy.all", desc: true },]);
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
+    "answer_label.correct": false,
+    "answer_label.wrong": false,
+    "answer_label.uncertain": false,
+    "answer_label.none": false,
+    "average_time.correct": false,
+    "average_time.wrong": false,
+    "average_time.uncertain": false,
+  });
+
+  // This useEffect handles mobile vs. desktop column visibility for "category"
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setColumnVisibility((prev) => ({ ...prev, category: false }));
+      } else {
+        setColumnVisibility((prev) => ({ ...prev, category: true }));
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-  });
+    getFilteredRowModel: getFilteredRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    onSortingChange: setSorting,
+    onColumnFiltersChange: setColumnFilters,
+    onColumnVisibilityChange: setColumnVisibility,
+    state: {
+      sorting,
+      columnFilters,
+      columnVisibility,
+    },
 
-  const groupedRows: { [key: string]: TData[] } = {};
-
-  // Group rows by category
-  data.forEach((row) => {
-    if (!groupedRows[row.category]) groupedRows[row.category] = [];
-    groupedRows[row.category].push(row);
+    enableColumnFilters: true,
   });
 
   return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            {table.getFlatHeaders().map((header) => (
-              <TableHead key={header.id} className="text-center">
-                {flexRender(header.column.columnDef.header, header.getContext())}
-              </TableHead>
-            ))}
-          </TableRow>
-        </TableHeader>
+    <div className="w-full">
+      <div className="flex flex-col md:flex-row items-start justify-baseline gap-2 py-4">
+        <MultiSelectFilter<TData> table={table} columnId="category" />
+        <MultiSelectFilter<TData> table={table} columnId="model" />
+        <Toggle
+          onClick={() => {
+            table.getColumn("answer_label.correct")?.toggleVisibility();
+            table.getColumn("answer_label.wrong")?.toggleVisibility();
+            table.getColumn("answer_label.uncertain")?.toggleVisibility();
+            table.getColumn("answer_label.none")?.toggleVisibility();
+          }}
+        >
+          Show Answer Labels
+        </Toggle>
 
-        <TableBody>
-          {Object.entries(groupedRows).map(([category, rows], groupIndex) => (
-            <React.Fragment key={category}>
+        <Toggle
+          onClick={() => {
+            table.getColumn("average_time.correct")?.toggleVisibility();
+            table.getColumn("average_time.wrong")?.toggleVisibility();
+            table.getColumn("average_time.uncertain")?.toggleVisibility();
+          }}
+        >
+          Show Time Taken
+        </Toggle>
+
+        {/* Toggle for "Category" column - visible only on mobile */}
+        <Toggle
+          className="md:hidden"
+          onClick={() => {
+            table.getColumn("category")?.toggleVisibility();
+          }}
+        >
+          Show Category
+        </Toggle>
+      </div>
+      <div className="rounded-md border">
+        <Table>
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header, index) => (
+                  <TableHead
+                    key={`${headerGroup.id}-${header.id}-${index}`}
+                    colSpan={header.colSpan}
+                    className="text-center px-0"
+                  >
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row, index) => (
+                <TableRow
+                  key={`${row.id}-${index}`}
+                  data-state={row.getIsSelected() && "selected"}
+                  // 1) highlight the entire "Human" row
+                  className={
+                    (row.original as any).category === "Human"
+                      ? "bg-blue-50"
+                      : ""
+                  }
+                >
+                  {row.getVisibleCells().map((cell, cellIndex) => {
+                    // 2) only bold "accuracy" columns for the Human row
+                    const isHumanRow =
+                      (row.original as any).category === "Human";
+                    const isAccuracyCell = cell.column.id?.includes("accuracy");
+
+                    return (
+                      <TableCell
+                        key={`${cell.id}-${cellIndex}`}
+                        className={`text-center ${
+                          isHumanRow && isAccuracyCell ? "font-bold" : ""
+                        }`}
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              ))
+            ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className={`text-center font-semibold ${category.includes("Closed") ? "bg-yellow-100" : "bg-green-100"}`}>
-                  {category}
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
+                  No results.
                 </TableCell>
               </TableRow>
-
-              {rows.map((row, index) => {
-                const rowModel = table.getRowModel().rows.find(
-                  (r) => r.original === row
-                );
-
-                if (!rowModel) return null;
-
-                return (
-                  <TableRow key={`${category}-${index}`}>
-                    {rowModel.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id} className="text-center">
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                );
-              })}
-            </React.Fragment>
-          ))}
-        </TableBody>
-      </Table>
+            )}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 }
