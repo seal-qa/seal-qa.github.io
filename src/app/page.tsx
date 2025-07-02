@@ -1,17 +1,14 @@
-import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
 import type { RowData } from "@/components/results-table/columns";
-import { DataTable } from "@/components/results-table/data-table";
 import { columns } from "@/components/results-table/columns";
-import { bearCubsLeaderboard } from "@/data/bear_cubs_leaderboard";
-import { CollapsibleSection } from "@/components/dropdown-section";
+import { DataTable } from "@/components/results-table/data-table";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { DataTable }         from "@/components/results-table/data-table";
-import { columns }           from "@/components/results-table/columns";
-import { sealHardCombined }  from "@data/sealHardCombined";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { bearCubsLeaderboard } from "@/data/bear_cubs_leaderboard";
+import { sealHardCombined } from "@data/sealHardCombined";
+import Image from "next/image";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -179,6 +176,11 @@ export default function Home() {
     Table 6: SealQA also poses challenges for humans.
     </p>
   </Card>
+
+  <section className="my-8">
+        <h2 className="text-2xl font-bold mb-4">All SEAL-HARD Metrics</h2>
+        <DataTable columns={columns} data={sealHardCombined} />
+      </section>
 
 {/* more */}
 
