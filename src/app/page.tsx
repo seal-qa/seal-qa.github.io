@@ -9,6 +9,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { DataTable }         from "@/components/results-table/data-table";
+import { columns }           from "@/components/results-table/columns";
+import { sealHardCombined }  from "@data/sealHardCombined";
+
+
 export default function Home() {
   const parsedData: RowData[] = bearCubsLeaderboard;
   return (
