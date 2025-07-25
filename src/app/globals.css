@@ -55,8 +55,8 @@
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.2 0.05 300);
     
-    --primary: oklch(0.45 0.22 300);
-    --primary-foreground: oklch(0.99 0.01 300);
+    --primary: #861F41;
+    --primary-foreground: oklch(0.99 0 0); 
     
     --secondary: oklch(0.92 0.05 300);
     --secondary-foreground: oklch(0.35 0.15 300);
@@ -101,8 +101,11 @@
     --popover: oklch(0.18 0.05 300);
     --popover-foreground: oklch(0.95 0.03 300);
     
-    --primary: oklch(0.6 0.25 300);
-    --primary-foreground: oklch(0.05 0.05 300);
+    /* VT maroon  –  hex #861F41 ≈ OKLCH(0.39 0.16 12) */
+    --primary: #861F41;
+    /* keep the text on the button very light for contrast */
+    --primary-foreground: oklch(0.99 0.01 0);
+
     
     --secondary: oklch(0.25 0.1 300);
     --secondary-foreground: oklch(0.95 0.03 300);
